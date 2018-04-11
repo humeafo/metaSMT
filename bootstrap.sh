@@ -3,20 +3,21 @@ SRC_DIR=$( cd $(dirname $0) && pwd)
 
 BUILD_DIR=$PWD/build
 
-BOOST=boost-1_55_0-fs
+BOOST=boost-1_66_0-fs
 
 ACADEMIC="
   boolector-2.4.1
   lingeling-bbc-9230380-161217
   minisat-git
-  yices-2.5.2
+  yices-2.5.4
 "
 
 FREE="
-  Z3-4.5.0
+  Z3-4.6.0
   cvc4-1.5
-  stp-2.3.1-basic
+  stp-git
   minisat-git
+  cryptominisat-git
   aiger-20071012
   picosat-936
   cudd-3.0.0
@@ -28,7 +29,7 @@ NONFREE="
 
 CMAKE=cmake
 BUILD_CMAKE="no"
-CMAKE_PACKAGE=cmake-3.2.2
+CMAKE_PACKAGE=cmake-3.11.0
 
 CMAKE_ARGS=""
 CMAKE_GENERATOR=""
