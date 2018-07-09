@@ -3,7 +3,7 @@ SRC_DIR=$( cd $(dirname $0) && pwd)
 
 BUILD_DIR=$PWD/build
 
-BOOST=boost-1_66_0-fs
+BOOST=boost-1_67_0-fs
 
 KLEE="
   boolector-3.0.0
