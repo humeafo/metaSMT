@@ -5,6 +5,18 @@ BUILD_DIR=$PWD/build
 
 BOOST=boost-1_66_0-fs
 
+KLEE="
+  boolector-3.0.0
+  yices-2.6.0
+  cvc4-1.6
+"
+
+KLEE_GIT="
+  boolector-git
+  yices-git
+  cvc4-git
+"
+
 ACADEMIC="
   boolector-2.4.1
   lingeling-bbc-9230380-161217
@@ -42,6 +54,8 @@ usage() {
 $0 sets up a metaSMT build directory.
 usage: $0 [--free] [--non-free] build
   --help          show this help
+  --klee
+  --klee-git
   --academic      include academic license backends (Boolector, Lingeling)
   --free          include free backends (Aiger, CUDD, CVC4, PicoSat, Z3, ...)
   --non-free      include non-free backends (SWORD, Lingeling)
@@ -73,6 +87,8 @@ fi
 while [[ "$@" ]]; do
   case $1 in
     --help|-h)    usage;;
+    --klee)       REQUIRES="$KLEE $REQUIRES" ;;
+    --klee-git)   REQUIRES="$KLEE_GIT $REQUIRES" ;;
     --academi*)   REQUIRES="$ACADEMIC $REQUIRES" ;;
     --free)       REQUIRES="$FREE $REQUIRES" ;;
     --non-free)   REQUIRES="$NONFREE $REQUIRES" ;;
