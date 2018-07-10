@@ -147,7 +147,7 @@ namespace metaSMT {
         }
 
         assert(r.is_bv());
-        unsigned long long val = 0;
+        uint64_t val = 0;
         if (Z3_get_numeral_uint64(ctx_, r, &val) && val <= std::numeric_limits<uint64_t>::max())
           return result_wrapper(val, r.get_sort().bv_size());
 
