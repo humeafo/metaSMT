@@ -3,6 +3,11 @@ variables:
 
 ### templates for docker images
 
+.ubuntu18: &ubuntu18
+  image: ubuntu:bionic
+  tags:
+  - docker
+
 .ubuntu16_x86: &ubuntu16_x86
   image: m0elnx/ubuntu-32bit:latest
   tags:
@@ -15,6 +20,11 @@ variables:
 
 .ubuntu14: &ubuntu14
   image: ubuntu:trusty
+  tags:
+  - docker
+
+.debian9: &debian9
+  image: debian:stretch
   tags:
   - docker
 
@@ -41,12 +51,20 @@ variables:
   - if [ -z "$MAX_FAILS" ]; then MAX_FAILS=10; fi
   - if [ "$NUM_FAILED" -gt "$MAX_FAILS" ]; then echo "Too many failures ($NUM_FAILED)"; exit 1; fi
 
+build_default_ubuntu18:
+  <<: *ubuntu18
+  script: *build_default
+
 build_default_ubuntu16:
   <<: *ubuntu16
   script: *build_default
 
 build_default_ubuntu14:
   <<: *ubuntu14
+  script: *build_default
+
+build_default_debian9:
+  <<: *debian9
   script: *build_default
 
 build_default_debian8:
