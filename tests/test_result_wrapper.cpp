@@ -68,6 +68,7 @@ void check_conversion_XXX( result_wrapper const & rw)
 void check_conversion_0_in_8bit( result_wrapper const & rw)
 {
   tribool tri = rw;
+  BOOST_REQUIRE( !indeterminate(tri) );
   BOOST_REQUIRE_EQUAL( static_cast<bool>(tri), false);
 
   bool boolean = rw;
@@ -319,6 +320,7 @@ void check_conversion_false( result_wrapper const & rw)
   using boost::logic::tribool;
 
   tribool tri = rw;
+  BOOST_REQUIRE( !indeterminate(tri) );
   BOOST_REQUIRE_EQUAL( static_cast<bool>(tri), false);
 
   bool boolean = rw;
@@ -397,6 +399,7 @@ BOOST_AUTO_TEST_CASE( tribool_from_string )
   BOOST_REQUIRE_EQUAL(static_cast<bool>(t), true);
 
   t = result_wrapper ("0");
+  BOOST_REQUIRE( !indeterminate(t) );
   BOOST_REQUIRE_EQUAL(static_cast<bool>(t), false);
 
 	t = result_wrapper ("X");
@@ -412,6 +415,7 @@ BOOST_AUTO_TEST_CASE( tribool_from_char )
   BOOST_REQUIRE_EQUAL(static_cast<bool>(t), true);
 
   t = result_wrapper ('0');
+  BOOST_REQUIRE( !indeterminate(t) );
   BOOST_REQUIRE_EQUAL(static_cast<bool>(t), false);
 
 	t = result_wrapper ('X');
