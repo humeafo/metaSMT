@@ -38,12 +38,12 @@ variables:
   script: &build_default
   - apt-get -qq update
   - apt-get -qq -y upgrade
-  - apt-get install -qq -y build-essential cmake git wget unzip zlib1g-dev python
+  - apt-get install -qq -y build-essential cmake git wget unzip zlib1g-dev python libboost-dev
   - NUM_JOBS=$[`nproc`-1]
   - if [ "$NUM_JOBS" -lt 1 ]; then NUM_JOBS=1; fi
   - git clone https://github.com/agra-uni-bremen/dependencies.git
   - if [ -z "$METASMT_SOLVERS" ]; then METASMT_SOLVERS=$METASMT_DEFAULT_SOLVERS; fi
-  - ./bootstrap.sh -d deps -m RELEASE build $METASMT_SOLVERS
+  - BOOST_ROOT=/usr ./bootstrap.sh -d deps -m RELEASE build $METASMT_SOLVERS
   - cd build
   - make -j $NUM_JOBS
   - ctest --output-on-failure --output-log tests.log || true
