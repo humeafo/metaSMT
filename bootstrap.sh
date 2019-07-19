@@ -25,18 +25,16 @@ ACADEMIC="
 "
 
 FREE="
-  Z3-4.6.0
-  cvc4-1.5
-  stp-git
+  boolector-3.0.0
+  yices-2.6.1
+  Z3-4.8.4
+  cvc4-1.6
+  stp-2.3.3-basic
   minisat-git
   cryptominisat-git
   aiger-20071012
   picosat-936
   cudd-3.0.0
-"
-
-NONFREE="
-  SWORD-1.1
 "
 
 CMAKE=cmake
