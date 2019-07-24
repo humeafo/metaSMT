@@ -3,12 +3,12 @@ SRC_DIR=$( cd $(dirname $0) && pwd)
 
 BUILD_DIR=$PWD/build
 
-BOOST=boost-1_67_0-fs
+BOOST=boost-1_70_0-fs
 
 KLEE="
-  boolector-3.0.0
-  yices-2.6.0
-  cvc4-1.6
+  boolector-git
+  yices-git
+  cvc4-1.7
 "
 
 KLEE_GIT="
@@ -27,8 +27,8 @@ ACADEMIC="
 FREE="
   boolector-3.0.0
   yices-2.6.1
-  Z3-4.8.4
-  cvc4-1.6
+  Z3-4.8.5
+  cvc4-1.7
   stp-2.3.3-basic
   minisat-git
   cryptominisat-git
