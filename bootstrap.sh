@@ -6,8 +6,8 @@ BUILD_DIR=$PWD/build
 BOOST=boost-1_70_0-fs
 
 KLEE="
-  boolector-git
-  yices-git
+  boolector-3.0.0
+  yices-2.6.1
   cvc4-1.7
 "
 
